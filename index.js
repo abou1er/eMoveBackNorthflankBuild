@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const port = 80;
 
-app.get('/', (req, res) => {
-	res.send('Hello World! dans le trankil');
-});
+// app.get('/', (req, res) => {
+// 	res.send('Hello World! dans le trankil');
+// });
 
 app.get('/api/:id', (req, res) => {
 	res.send(`Get resource for ${req.params.id}.`);
@@ -65,7 +65,7 @@ app.use(express.urlencoded({ extended: false }));
 // --------------METHODES Vehicules------------------------------------------
 
 //*****************GET All**********************************
-// app.get('/', async (req, res) => {
-//     const vehicules = await Vehicules.find()              // On récupère tous les véhicules
-//     await res.json(vehicules)
-// })
+app.get('/', async (req, res) => {
+    const vehicules = await Vehicules.find()              // On récupère tous les véhicules
+    await res.json(vehicules)
+})
